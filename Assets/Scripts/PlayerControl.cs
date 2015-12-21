@@ -6,7 +6,6 @@ public class PlayerControl : MonoBehaviour {
 	private Rigidbody2D rigidbody;
 	private Vector2 velocity;
 
-	public Transform groundCheck;
 	public float groundCheckRadius;
 	public LayerMask whatIsGround;
 	

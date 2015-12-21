@@ -29,7 +29,7 @@ public class EnemyControl : MonoBehaviour {
 			Debug.Log("Enter trigger");
 			
 			isHit = true;
-			levelmanager.LoadLevel ("Lose");
+			//levelmanager.LoadLevel ("Lose");
 		}
 	}
 }
