@@ -23,4 +23,9 @@ public class ScoreController : MonoBehaviour {
 	{
 		score += value; 
 	} 
+	
+	public static int GetScore() 
+	{
+		return score; 
+	} 
 }
