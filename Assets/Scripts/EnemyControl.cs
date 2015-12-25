@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyControl : MonoBehaviour {
 	public LevelManager levelmanager;
 	public float enemySpeed;
+	public float enemySpeedIncrease; 
 	public float scoreCap; 
 
 	private Rigidbody2D enemyRigidBody;
@@ -25,7 +26,7 @@ public class EnemyControl : MonoBehaviour {
 			
 		if (ScoreController.GetScore() > scoreCap) 
 		{
-			enemySpeed += -0.5f; 
+			enemySpeed += -(enemySpeedIncrease); 
 			scoreCap += scoreCap; 
 		}
 	}

@@ -11,7 +11,9 @@ public class PlayerControl : MonoBehaviour {
 	
 	public float jumpHeight;
 	private bool grounded;
-	
+
+
+	bool timeSlow = false; 
 	// Use this for initialization
 	void Start () {
 		rigidbody = GetComponent<Rigidbody2D>();
@@ -23,5 +25,17 @@ public class PlayerControl : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space) && grounded){		
 			rigidbody.velocity = new Vector2(0f, jumpHeight);
 		}	
+
+		// Slow down powerup
+		if (Input.GetKeyDown(KeyCode.LeftControl) && !timeSlow)
+		{
+			Powerups.SlowDownTime(); 		
+			timeSlow = true; 
+		}
+		else if (Input.GetKeyDown(KeyCode.LeftControl) && timeSlow)	
+		{
+			Time.timeScale = 1.0F; 
+			timeSlow = false; 
+		}
 	}
 }
