@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class EnemyControl : MonoBehaviour {
-	
 	public LevelManager levelmanager;
 	public float enemySpeed;
+	public float enemySpeedIncrease; 
+	public float scoreCap; 
 
 	private Rigidbody2D enemyRigidBody;
 	private bool isHit = false;	
+	
 	// Use this for initialization
 	void Start () {
 		levelmanager = FindObjectOfType<LevelManager>();
@@ -21,6 +23,12 @@ public class EnemyControl : MonoBehaviour {
 			enemyRigidBody.velocity = new Vector2(enemySpeed, 0f);
 		else
 			enemyRigidBody.velocity = new Vector2(0f,0f);	
+			
+		if (ScoreController.GetScore() > scoreCap) 
+		{
+			enemySpeed += -(enemySpeedIncrease); 
+			scoreCap += scoreCap; 
+		}
 	}
 	
 	//Checks if player and enemy have collided
